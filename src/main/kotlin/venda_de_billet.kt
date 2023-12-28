@@ -37,6 +37,9 @@ fun showTickets(option:Int=1){
     }
 }
 
+/**
+ * reading the option chosen by the user
+ */
 fun choosingAnOptionInMenu1(): Int {
     val userOptionInMenu1 = readInt(
         pMessageIn = "Seleccioneu tipus de billet"
