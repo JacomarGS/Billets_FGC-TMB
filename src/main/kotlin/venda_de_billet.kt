@@ -23,22 +23,13 @@ fun showTickets(option:Int=1, ticket:Int=1):Float{
                 4->ticketName="Hola Barcelona 3 Dies"
                 5->ticketName="Hola Barcelona 4 Dies"
                 6->ticketName="Hola Barcelona 5 Dies"
+                7->ticketName = "T-dia        "
+                8 -> ticketName = "T-4           "
             }
                 print("|-------------------------------|\n"+
                         "|      ${ticketName}    |\n"+
                         "|-------------------------------|\n")
 
-        }else if(option==2) {
-            when (ticket) {
-                1 -> ticketName = "T-dia        "
-                2 -> ticketName = "T-4           "
-            }
-
-            print(
-                "|-------------------------------|\n" +
-                        "|      ${ticketName}    |\n" +
-                        "|-------------------------------|\n"
-            )
         }
         when(ticket){
             1-> if (option==1) return 5.15f else if (option==2) return 10.50f
@@ -70,23 +61,30 @@ val userOptionInMenu2 = readInt(
     , pMin = 1
     , pMax = 2
 )
-
-fun buyingTickets(): Int {
+fun quantityTickets():Int{
     var quantity = 1
     var finalOption: Boolean = false
     do {
+        if (quantity>1){
+            println("$quantity - Billet")
+        }else{
+            println("$quantity - Billets")
+        }
+        println(showTickets()*quantity)
         val userOption = readInt(
-            pMessageIn = "Seleccioneu quantitat\n" + "1. Incrementar\n" + "2. Decrementar\n" + "0. Sortir"
+            pMessageIn = "Seleccioneu quantitat\n" + "1. Incrementar\n" + "2. Decrementar\n" + "3. Confirmar\n" +
+                    "0. Anul·lar"
             , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu 1 per incrementar o 2 per decrementar."
             , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu 1 per incrementar o 2 per decrementar."
             , pMin = 0
-            , pMax = 2
+            , pMax = 3
         )
         when (userOption){
             1 -> quantity ++
             2 -> quantity--
-            0 -> finalOption = true
+            3 -> finalOption = true
+            0 ->  quantity=0
         }
-    } while (!finalOption)
+    } while (!finalOption || quantity==0)
     return quantity
 }
