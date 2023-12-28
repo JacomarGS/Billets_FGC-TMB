@@ -91,20 +91,18 @@ fun quantityTickets():Int{
 
 fun travelZones(quantity:Float): Float{
     var priceOfTheTicket = quantity
-    do {
         val userOption = readInt(
             pMessageIn = "Seleccioneu la zona:\n" + "1. Zona 1\n" + "2. Zona 2\n" + "3. Zona 3\n" + "0. Anul·lar"
             , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
             , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-            , pMin = 0
+            , pMin = 1
             , pMax = 3
         )
         when (userOption){
             1 -> priceOfTheTicket * 1f
             2 -> priceOfTheTicket * 1.3125f
             3 -> priceOfTheTicket * 1.8443f
-            0 -> priceOfTheTicket = 0f
         }
-    } while (priceOfTheTicket!=0f)
     return priceOfTheTicket
 }
+
