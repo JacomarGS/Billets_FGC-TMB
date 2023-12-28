@@ -1,5 +1,8 @@
 package org.example
 
+import java.util.Scanner
+val scanner = Scanner(System.`in`)
+
 /**
  * showTickets
  */
@@ -32,4 +35,26 @@ fun showTickets(option:Int=1){
                     "|-------------------------------|\n")
         }
     }
+}
+
+fun choosingAnOptionInMenu1(): Int {
+    val userOptionInMenu1 = readInt(
+        pMessageIn = "Seleccioneu tipus de billet"
+        , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+        , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+        , pMin = 1
+        , pMax = 6
+    )
+    return userOptionInMenu1
+}
+
+fun choosingAnOptionInMenu2(): Int {
+    val userOptionInMenu2 = readInt(
+        pMessageIn = "Seleccioneu tipus de billet"
+        , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+        , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+        , pMin = 1
+        , pMax = 2
+    )
+    return userOptionInMenu2
 }
