@@ -5,13 +5,17 @@ val scanner = Scanner(System.`in`)
 
 /**
  * showTickets
+ * @author pol.paredes
+ * @since Commit 6 (28/12/2023)
+ * @param option , based on the number it treats a diferent menu (Int)
+ * @param ticket , determines what ticket is the afected one (Int)
+ * @return Output value (Float)
  */
-fun showTickets(option:Int=1){
+fun showTickets(option:Int=1, ticket:Int=1):Float{
     val ticketsOption1:Int=6
     val ticketsOption2:Int=2
     var ticketName:String=""
-    if(option==1){
-        for(ticket in 1..ticketsOption1){
+        if(option==1){
             when(ticket){
                 1-> ticketName="Billet aeroport        "
                 2->ticketName="Billet sencill          "
@@ -20,21 +24,32 @@ fun showTickets(option:Int=1){
                 5->ticketName="Hola Barcelona 4 Dies"
                 6->ticketName="Hola Barcelona 5 Dies"
             }
-            print("|-------------------------------|\n"+
-                    "|      ${ticketName}    |\n"+
-                    "|-------------------------------|\n")
-        }
-    }else if(option==2){
-        for(ticket in 1..ticketsOption2){
-            when(ticket){
-                1-> ticketName="T-dia        "
-                2->ticketName="T-4           "
+                print("|-------------------------------|\n"+
+                        "|      ${ticketName}    |\n"+
+                        "|-------------------------------|\n")
+
+        }else if(option==2) {
+            when (ticket) {
+                1 -> ticketName = "T-dia        "
+                2 -> ticketName = "T-4           "
             }
-            print("|-------------------------------|\n"+
-                    "|      ${ticketName}    |\n"+
-                    "|-------------------------------|\n")
+
+            print(
+                "|-------------------------------|\n" +
+                        "|      ${ticketName}    |\n" +
+                        "|-------------------------------|\n"
+            )
         }
-    }
+        when(ticket){
+            1-> if (option==1) return 5.15f else if (option==2) return 10.50f
+            2-> if (option==1) return 2.40f else if (option==2) return 2f
+            3-> if (option==1) return 16.40f
+            4-> if (option==1) return 23.80f
+            5-> if (option==1) return 31f
+            6-> if (option==1) return 38.20f
+        }
+
+    return 0f
 }
 
 /**
