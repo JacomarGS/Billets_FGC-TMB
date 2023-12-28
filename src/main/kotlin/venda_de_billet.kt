@@ -105,4 +105,3 @@ fun travelZones(quantity:Float): Float{
         }
     return priceOfTheTicket
 }
-

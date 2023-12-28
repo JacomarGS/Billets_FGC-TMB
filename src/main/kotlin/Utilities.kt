@@ -296,3 +296,59 @@ fun readFloat(pMessageIn: String
 
     return outputValue
 }
+
+/**
+ * This method can be used to read a float value from the user via the keyboard using java.util.Scanner within a range
+ * determined by the numbers corresponding to the current coins value.
+ * @author jacomar, based on the raimon.izard's code.
+ * @since 28/12/2023
+ * @param pMessageIn Input message to be shown to the user
+ * @param pMessageErrorDT Data type error message to be shown to the user
+ * @param pMessageErrorDV Data value error message to be shown to the user
+ * @param pMin Min accepted value
+ * @param pMax Max accepted value
+ * @return outputValue Output value
+ */
+
+fun readFloatCash(pMessageIn: String
+              , pMessageErrorDT: String
+              , pMessageErrorDV: String
+              , pMin: Float
+              , pMax: Float
+): Float{
+
+    var outputValue: Float = 0.0f
+    var correctDataType: Boolean = false
+
+    do{
+        println(pMessageIn)
+        correctDataType = scan.hasNextFloat()
+
+        if (!correctDataType){
+            println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+        }else{
+            outputValue = scan.nextFloat()
+
+            if (outputValue < pMin || outputValue > pMax){
+                println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
+                correctDataType = false
+            }
+        }
+        scan.nextLine()
+
+        when (outputValue){
+            0.05f -> correctDataType = true
+            0.10f -> correctDataType = true
+            0.20f -> correctDataType = true
+            0.50f -> correctDataType = true
+            1f -> correctDataType = true
+            2f -> correctDataType = true
+            5f -> correctDataType = true
+            10f -> correctDataType = true
+            20f -> correctDataType = true
+            50f -> correctDataType = true
+        }
+    }while(!correctDataType)
+
+    return outputValue
+}
