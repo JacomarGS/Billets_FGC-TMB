@@ -74,8 +74,8 @@ fun quantityTickets():Int{
         val userOption = readInt(
             pMessageIn = "Seleccioneu quantitat\n" + "1. Incrementar\n" + "2. Decrementar\n" + "3. Confirmar\n" +
                     "0. Anul·lar"
-            , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu 1 per incrementar o 2 per decrementar."
-            , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu 1 per incrementar o 2 per decrementar."
+            , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+            , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
             , pMin = 0
             , pMax = 3
         )
@@ -83,8 +83,28 @@ fun quantityTickets():Int{
             1 -> quantity ++
             2 -> quantity--
             3 -> finalOption = true
-            0 ->  quantity=0
+            0 -> quantity = 0
         }
     } while (!finalOption || quantity==0)
     return quantity
+}
+
+fun travelZones(quantity:Float): Float{
+    var priceOfTheTicket = quantity
+    do {
+        val userOption = readInt(
+            pMessageIn = "Seleccioneu la zona:\n" + "1. Zona 1\n" + "2. Zona 2\n" + "3. Zona 3\n" + "0. Anul·lar"
+            , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+            , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+            , pMin = 0
+            , pMax = 3
+        )
+        when (userOption){
+            1 -> priceOfTheTicket * 1f
+            2 -> priceOfTheTicket * 1.3125f
+            3 -> priceOfTheTicket * 1.8443f
+            0 -> priceOfTheTicket = 0f
+        }
+    } while (priceOfTheTicket!=0f)
+    return priceOfTheTicket
 }
