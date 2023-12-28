@@ -55,24 +55,38 @@ fun showTickets(option:Int=1, ticket:Int=1):Float{
 /**
  * reading the option chosen by the user
  */
-fun choosingAnOptionInMenu1(): Int {
-    val userOptionInMenu1 = readInt(
-        pMessageIn = "Seleccioneu tipus de billet"
-        , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-        , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-        , pMin = 1
-        , pMax = 6
-    )
-    return userOptionInMenu1
-}
+val userOptionInMenu1 = readInt(
+    pMessageIn = "Seleccioneu tipus de billet"
+    , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+    , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+    , pMin = 1
+    , pMax = 6
+)
 
-fun choosingAnOptionInMenu2(): Int {
-    val userOptionInMenu2 = readInt(
-        pMessageIn = "Seleccioneu tipus de billet"
-        , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-        , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-        , pMin = 1
-        , pMax = 2
-    )
-    return userOptionInMenu2
+val userOptionInMenu2 = readInt(
+    pMessageIn = "Seleccioneu tipus de billet"
+    , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+    , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
+    , pMin = 1
+    , pMax = 2
+)
+
+fun buyingTickets(): Int {
+    var quantity = 1
+    var finalOption: Boolean = false
+    do {
+        val userOption = readInt(
+            pMessageIn = "Seleccioneu quantitat\n" + "1. Incrementar\n" + "2. Decrementar\n" + "0. Sortir"
+            , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu 1 per incrementar o 2 per decrementar."
+            , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu 1 per incrementar o 2 per decrementar."
+            , pMin = 0
+            , pMax = 2
+        )
+        when (userOption){
+            1 -> quantity ++
+            2 -> quantity--
+            0 -> finalOption = true
+        }
+    } while (!finalOption)
+    return quantity
 }
