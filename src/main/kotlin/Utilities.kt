@@ -310,45 +310,41 @@ fun readFloat(pMessageIn: String
  * @return outputValue Output value
  */
 
+
 fun readFloatCash(pMessageIn: String
-              , pMessageErrorDT: String
-              , pMessageErrorDV: String
-              , pMin: Float
-              , pMax: Float
+                  , pMessageErrorDT: String
 ): Float{
+
 
     var outputValue: Float = 0.0f
     var correctDataType: Boolean = false
+
 
     do{
         println(pMessageIn)
         correctDataType = scan.hasNextFloat()
 
+
         if (!correctDataType){
             println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
         }else{
             outputValue = scan.nextFloat()
-
-            if (outputValue < pMin || outputValue > pMax){
-                println(YELLOW_BOLD_BRIGHT + "WARNING: " + pMessageErrorDV + RESET)
-                correctDataType = false
+            when (outputValue){
+                0.05f -> return 0.05f
+                0.10f -> return 0.10f
+                0.20f -> return 0.20f
+                0.50f -> return 0.50f
+                1f -> return 1f
+                2f -> return 2f
+                5f -> return 5f
+                10f -> return 10f
+                20f -> return 20f
+                50f -> return 50f
             }
         }
         scan.nextLine()
+    }while(correctDataType)
 
-        when (outputValue){
-            0.05f -> correctDataType = true
-            0.10f -> correctDataType = true
-            0.20f -> correctDataType = true
-            0.50f -> correctDataType = true
-            1f -> correctDataType = true
-            2f -> correctDataType = true
-            5f -> correctDataType = true
-            10f -> correctDataType = true
-            20f -> correctDataType = true
-            50f -> correctDataType = true
-        }
-    }while(!correctDataType)
 
     return outputValue
 }

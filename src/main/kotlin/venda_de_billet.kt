@@ -1,7 +1,9 @@
 package org.example
 
+
 import java.util.Scanner
 val scanner = Scanner(System.`in`)
+
 
 /**
  * showTickets
@@ -11,68 +13,72 @@ val scanner = Scanner(System.`in`)
  * @param ticket , determines what ticket is the afected one (Int)
  * @return Output value (Float)
  */
-fun showTickets(option:Int=1, ticket:Int=1):Float{
+fun showTickets(option:Int=1, ticket:Int=1, printTicket:Boolean=true):Float{
     var ticketName:String=""
-        if(option==1){
-            when(ticket){
-                1-> ticketName="Billet aeroport        "
-                2->ticketName="Billet sencill          "
-                3->ticketName="Hola Barcelona 2 Dies"
-                4->ticketName="Hola Barcelona 3 Dies"
-                5->ticketName="Hola Barcelona 4 Dies"
-                6->ticketName="Hola Barcelona 5 Dies"
-                7->ticketName = "T-dia        "
-                8 -> ticketName = "T-4           "
-                9->ticketName="TCasual"
-                10->ticketName="TUsual"
-                11->ticketName="TFamiliar"
-                12->ticketName="TJove"
-            }
-                print("|-------------------------------|\n"+
-                        "|      ${ticketName}    |\n"+
-                        "|-------------------------------|\n")
-
-        }
+    if(option==1){
         when(ticket){
-            1-> return 5.15f
-            2-> return 2.40f
-            3-> return 16.40f
-            4-> return 23.80f
-            5-> return 31f
-            6-> return 38.20f
-            7->  return 10.50f
-            8-> return 2f
-            9-> return 11.35f
-            10-> return 40f
-            11-> return 10f
-            12-> return 80f
+            1-> ticketName="Billet aeroport"
+            2->ticketName="Billet sencill"
+            3->ticketName="Hola Barcelona 2 Dies"
+            4->ticketName="Hola Barcelona 3 Dies"
+            5->ticketName="Hola Barcelona 4 Dies"
+            6->ticketName="Hola Barcelona 5 Dies"
+            7->ticketName = "T-dia"
+            8 -> ticketName = "T-4"
+            9->ticketName="TCasual"
+            10->ticketName="TUsual"
+            11->ticketName="TFamiliar"
+            12->ticketName="TJove"
         }
+        if (printTicket) {
+            print(
+                "|-------------------------------|\n" +
+                        "|      ${ticketName}    |\n" +
+                        "|-------------------------------|\n"
+            )
+        }else{
+            print(ticketName)
+        }
+    }
+    when(ticket){
+        1-> return 5.15f
+        2-> return 2.40f
+        3-> return 16.40f
+        4-> return 23.80f
+        5-> return 31f
+        6-> return 38.20f
+        7->  return 10.50f
+        8-> return 2f
+        9-> return 11.35f
+        10-> return 40f
+        11-> return 10f
+        12-> return 80f
+    }
+
 
     return 0f
 }
 
-/**
- * reading the option chosen by the user
- */
-/*
-val userOptionInMenu1 = readInt(
-    pMessageIn = "Seleccioneu tipus de billet"
-    , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-    , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-    , pMin = 1
-    , pMax = 6
-)*/
+
+
+
 fun quantityTickets(ticket: Int):Float{
     var quantity = 1
     var finalOption: Boolean = false
     var price:Float=showTickets(option = 1, ticket=ticket)*quantity
     do {
-        if (quantity<2){
+        if (quantity<=0) {
+            quantity=1
+            println("No es poden menys de zero billets $quantity - Billet")
+        }else if (quantity<2){
             println("$quantity - Billet")
-        }else{
+        }else if (quantity<=3){
             println("$quantity - Billets")
+        }else{
+            quantity=3
+            println("No es poden més de tres billets $quantity - Billets")
         }
-        println(price)
+        println(price*quantity)
         val userOption = readInt(
             pMessageIn = "Seleccioneu quantitat\n" + "1. Incrementar\n" + "2. Decrementar\n" + "3. Confirmar\n" +
                     "0. Anul·lar"
@@ -85,11 +91,12 @@ fun quantityTickets(ticket: Int):Float{
             1 -> quantity ++
             2 -> quantity--
             3 -> finalOption = true
-            0 -> quantity = 0
+            0 -> return 0f
         }
-    } while (!finalOption || quantity==0)
+    } while (!finalOption)
     return price
 }
+
 
 /**
  * buyingTicket
@@ -99,28 +106,47 @@ fun quantityTickets(ticket: Int):Float{
 fun buyingTicket(price:Float){
     var userMoney:Float=price
     do {
-        userMoney = userMoney-readFloat(
+        userMoney -= readFloatCash(
             pMessageIn = "Has de pagar $userMoney\n" + "Siusplau introdueix monedes o billets d'euro valides",
             pMessageErrorDT = "Introdueix diners de veritat")
-    }while (userMoney>0)
-    if (userMoney<0){
+    }while (userMoney>=0)
+    if (userMoney<=0){
         println("Reculli el seu bitllet i el canvi: ${userMoney*(-1)}")
     }
 }
 
-fun travelZones(quantity:Float): Float{
-    var priceOfTheTicket = quantity
+
+fun travelZones(price:Float, quantity:Int): Float{
+    var priceOfTheTicket = price
     val userOption = readInt(
-        pMessageIn = "Seleccioneu la zona:\n" + "1. Zona 1\n" + "2. Zona 2\n" + "3. Zona 3\n" + "0. Anul·lar"
-        , pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-        , pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla."
-        , pMin = 1
-        , pMax = 3
+        pMessageIn = "Seleccioneu la zona:\n" + "1. Zona 1\n" + "2. Zona 2\n" + "3. Zona 3\n" + "0. Anul·lar",
+        pMessageErrorDT = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla.",
+        pMessageErrorDV = "Opció incorrecta. Si us plau, seleccioneu una de les opcions mostrades per pantalla.",
+        pMin = 1,
+        pMax = 3
     )
-    when (userOption){
-            1 -> priceOfTheTicket * 1f
-            2 -> priceOfTheTicket * 1.3125f
-            3 -> priceOfTheTicket * 1.8443f
-        }
+    when (userOption) {
+        1 -> priceOfTheTicket *= 1f
+        2 -> priceOfTheTicket *= 1.3125f
+        3 -> priceOfTheTicket *= 1.8443f
+    }
+    if (quantity==2){
+        priceOfTheTicket=priceOfTheTicket*2
+    }else if (quantity==3){
+        priceOfTheTicket=priceOfTheTicket*3
+    }
     return priceOfTheTicket
+}
+
+
+fun unknownTicktetQuantity(ticketPriceWhitoutZones:Float, ticketType:Int):Int {
+    var ticketPrice: Float = showTickets(option = 2, ticket =ticketType)
+    if (ticketPrice==ticketPriceWhitoutZones){
+        return 1
+    }else if (ticketPrice==ticketPriceWhitoutZones/2){
+        return 2
+    }else if (ticketPrice==ticketPriceWhitoutZones/3){
+        return 3
+    }
+    return 0
 }
