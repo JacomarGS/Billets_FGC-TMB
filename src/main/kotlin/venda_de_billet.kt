@@ -94,7 +94,7 @@ fun quantityTickets(ticket: Int):Float{
             0 -> return 0f
         }
     } while (!finalOption)
-    return price
+    return price*quantity
 }
 
 

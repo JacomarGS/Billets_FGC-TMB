@@ -38,12 +38,13 @@ fun asciiArt(){
 fun main() {
     var secretCode:Int=0
     val TOTAL_TICKETS:Int=12
-    var availableTransaction:Int=3
     var confirmationWhitUser:String=" "
     var totalPurchase:Float=0f
-    var matrixForTicket:Array<Array<String>> = Array(3){Array(3){"."}}
-    var counterTickets:Int=0
     do {
+        var counterTickets:Int=0
+        var availableTransaction:Int=3
+        var matrixForTicket:Array<Array<String>> = Array(3){Array(3){"."}}
+
         do{
             for (ticket in 1..TOTAL_TICKETS) {
                 println("$ticket:")
@@ -66,31 +67,30 @@ fun main() {
                 println("El total de la compra actual son $ticketFinalPrice€")
                 totalPurchase += ticketFinalPrice
                 availableTransaction--
-                counterTickets++
                 confirmationWhitUser = readWord(
                     pMessageIn = "Vols seguir compran? ($availableTransaction/3 " +
                             "transaccions disponibles) [S/N]",
                     pMessageErrorDT = "Introdueix un caracter valid"
                 )
-                for (line in 0..counterTickets-1) {
-                    for (column in 0..counterTickets-1) {
+                    for (column in 0..matrixForTicket[0].size-1) {
                         if (column == 0) {
-                            matrixForTicket[line][column] = userOption.toString()
+                            matrixForTicket[counterTickets][column] =userOption.toString()
                         } else if (column == 1) {
                             if (ticketPriceWhitoutZones == ticketFinalPrice) {
-                                matrixForTicket[line][column] = "1"
+                                matrixForTicket[counterTickets][column] = " 1 zona"
                             } else if (ticketPriceWhitoutZones == ticketFinalPrice / 1.3125f) {
-                                matrixForTicket[line][column] = "2"
+                                matrixForTicket[counterTickets][column] = " 2 zones"
                             } else {
-                                matrixForTicket[line][column] = "3"
+                                matrixForTicket[counterTickets][column] = " 3 zones"
                             }
                         } else {
-                            matrixForTicket[line][column] = ticketFinalPrice.toString()
+                            matrixForTicket[counterTickets][column] = " Preu del tiket:"+ ticketFinalPrice.toString()
                         }
                     }
                 }
-            }
-        }while (confirmationWhitUser.lowercase() == "s" || availableTransaction<=0)
+                counterTickets++
+
+        }while ( availableTransaction!=0 && confirmationWhitUser.lowercase()=="s")
         if (totalPurchase!=0f) {
             buyingTicket(totalPurchase)
             confirmationWhitUser = readWord(
@@ -102,9 +102,10 @@ fun main() {
                     for (column in 0..matrixForTicket[line].size - 1) {
                         if (matrixForTicket[line][column] != ".") {
                             if (column   == 0) {
-                                showTickets(ticket = matrixForTicket[line][column].toInt(), printTicket = false)
+                                showTickets(ticket = matrixForTicket[line][column].toInt(),
+                                    printTicket = false)
                             } else if (column == 1) {
-                                print("${matrixForTicket[column][line]} ")
+                                print("${matrixForTicket[line][column]} ")
                             } else {
                                 print("${matrixForTicket[line][column]} ")
                             }
