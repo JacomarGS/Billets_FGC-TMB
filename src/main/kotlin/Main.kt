@@ -46,6 +46,7 @@ fun main() {
         var matrixForTicket:Array<Array<String>> = Array(3){Array(3){"."}}
 
         do{
+            asciiArt()
             for (ticket in 1..TOTAL_TICKETS) {
                 println("$ticket:")
                 showTickets(option = 1, ticket = ticket)
