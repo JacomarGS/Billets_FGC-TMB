@@ -1,9 +1,6 @@
 package org.example
-
-
 import java.util.Scanner
 val scanner = Scanner(System.`in`)
-
 
 /**
  * showTickets
@@ -59,8 +56,13 @@ fun showTickets(option:Int=1, ticket:Int=1, printTicket:Boolean=true):Float{
     return 0f
 }
 
-
-
+/**
+ * quantityTickets, formerly known as buyingTickets
+ * @author jacomar, corrected and modified by pol.paredes
+ * @since Commit 7 (28/12/2023)
+ * @param ticket, the type of ticket chosen by the user
+ * @return price modified by the quantity chosen by the user
+ */
 
 fun quantityTickets(ticket: Int):Float{
     var quantity = 1
@@ -100,6 +102,7 @@ fun quantityTickets(ticket: Int):Float{
 
 /**
  * buyingTicket
+ * @author pol.paredes
  * @since Commit 11 (28/12/2023)
  * @param price, the price of the ticket (Float)
  */
@@ -115,6 +118,14 @@ fun buyingTicket(price:Float){
     }
 }
 
+/**
+ * travelZones
+ * @author jacomar, corrected and modified by pol.paredes
+ * @since Commit 8 (28/12/2023)
+ * @param price, the price of the ticket (Float)
+ * @param quantity, number of tickets the user has chosen (Int)
+ * @return priceOfTheTicket, ticket price modified by the chosen area (Float)
+ */
 
 fun travelZones(price:Float, quantity:Int): Float{
     var priceOfTheTicket = price
@@ -138,6 +149,11 @@ fun travelZones(price:Float, quantity:Int): Float{
     return priceOfTheTicket
 }
 
+/**
+ * unknownTicktetQuantity
+ * @author pol.paredes
+ * @since Commit 11 (28/12/2023)
+ */
 
 fun unknownTicktetQuantity(ticketPriceWhitoutZones:Float, ticketType:Int):Int {
     var ticketPrice: Float = showTickets(option = 2, ticket =ticketType)
