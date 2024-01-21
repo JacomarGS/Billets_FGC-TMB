@@ -1,0 +1,27 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:org.example////PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/index.html
+$dokka.location:org.example/ConsoleColorsKt///PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-console-colors-kt/index.html
+$dokka.location:org.example/MainKt///PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-main-kt/index.html
+$dokka.location:org.example/MainKt/asciiArt/#/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-main-kt/ascii-art.html
+$dokka.location:org.example/MainKt/main/#/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-main-kt/main.html
+$dokka.location:org.example/UtilitiesKt///PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/index.html
+$dokka.location:org.example/UtilitiesKt/getScan/#/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/get-scan.html
+$dokka.location:org.example/UtilitiesKt/readBoolean/#kotlin.String#kotlin.String/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-boolean.html
+$dokka.location:org.example/UtilitiesKt/readChar/#kotlin.String#kotlin.String#kotlin.Int/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-char.html
+$dokka.location:org.example/UtilitiesKt/readChar/#kotlin.String#kotlin.String/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-char.html
+$dokka.location:org.example/UtilitiesKt/readFloat/#kotlin.String#kotlin.String#kotlin.String#kotlin.Float#kotlin.Float/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-float.html
+$dokka.location:org.example/UtilitiesKt/readFloat/#kotlin.String#kotlin.String/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-float.html
+$dokka.location:org.example/UtilitiesKt/readFloatCash/#kotlin.String#kotlin.String/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-float-cash.html
+$dokka.location:org.example/UtilitiesKt/readInt/#kotlin.String#kotlin.String#kotlin.String#kotlin.Int#kotlin.Int/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-int.html
+$dokka.location:org.example/UtilitiesKt/readInt/#kotlin.String#kotlin.String/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-int.html
+$dokka.location:org.example/UtilitiesKt/readSentence/#kotlin.String#kotlin.String/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-sentence.html
+$dokka.location:org.example/UtilitiesKt/readWord/#kotlin.String#kotlin.String/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-utilities-kt/read-word.html
+$dokka.location:org.example/Venda_de_billetKt///PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-venda_de_billet-kt/index.html
+$dokka.location:org.example/Venda_de_billetKt/buyingTicket/#kotlin.Float/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-venda_de_billet-kt/buying-ticket.html
+$dokka.location:org.example/Venda_de_billetKt/getScanner/#/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-venda_de_billet-kt/get-scanner.html
+$dokka.location:org.example/Venda_de_billetKt/quantityTickets/#kotlin.Int/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-venda_de_billet-kt/quantity-tickets.html
+$dokka.location:org.example/Venda_de_billetKt/showTickets/#kotlin.Int#kotlin.Int/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-venda_de_billet-kt/show-tickets.html
+$dokka.location:org.example/Venda_de_billetKt/travelZones/#kotlin.Float/PointingToDeclaration/-billets_-f-g-c--t-m-b/org.example/-venda_de_billet-kt/travel-zones.html
+org.example
+
