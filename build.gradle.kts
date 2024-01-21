@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
+    kotlin("jvm") version "1.9.21"
     application
     id("org.jetbrains.dokka") version "1.9.10"
 }
@@ -17,7 +17,7 @@ dependencies {
 }
 
 tasks.dokkaHtml.configure {
-    outputDirectory.set(buildDir.resolve("dokka"))
+    outputDirectory.set(project.layout.buildDirectory.dir("dokka"))
 }
 
 tasks.test {
